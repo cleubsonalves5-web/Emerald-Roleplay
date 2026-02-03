@@ -1,0 +1,929 @@
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    color:white;
+    overflow-x:hidden;
+
+    background-image: url("https://images.unsplash.com/photo-1519608487953-e999c86e7455");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background: linear-gradient(120deg, rgba(0,20,5,.85), rgba(0,0,0,.75));
+    z-index:-1;
+}
+
+
+/* ===== HERO BACKGROUND ===== */
+
+.scene{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:1000px;
+    pading
+}
+
+.card{
+    position: relative;
+
+    /* IMAGEM + OVERLAY */
+    background-image:
+        linear-gradient(
+            rgba(5, 20, 10, 0.88),
+            rgba(0, 0, 0, 0.92)
+        ),
+        url("assets/img/hub-servidor.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    /* VISUAL */
+    padding:80px;
+    border-radius:22px;
+    text-align:center;
+
+    /* EFEITO GLASS / DEPTH */
+    backdrop-filter: blur(6px);
+    box-shadow:
+        0 40px 80px rgba(0,0,0,.65),
+        inset 0 0 0 1px rgba(90,255,122,.12);
+
+    transform-style: preserve-3d;
+    transition: .35s ease;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:22px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(120,255,180,.12),
+            transparent 55%
+        );
+
+    pointer-events:none;
+}
+
+.card:hover {
+    transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+}
+
+h1 {
+    color:#5aff7a;
+    letter-spacing:2px;
+}
+
+button {
+    margin-top:20px;
+    background:#5aff7a;
+    border:none;
+    padding:14px 30px;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.info {
+    padding:80px;
+    text-align:center;
+}
+
+/* ===== GALERIA VISUAL ===== */
+
+.showcase{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:120px 80px;
+    flex-wrap:wrap;
+}
+
+.box{
+    width:300px;
+    background:#04180a;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 30px 70px rgba(0,0,0,.7);
+    transition:.4s;
+    transform-style:preserve-3d;
+}
+
+.box:hover{
+    transform: translateY(-18px) rotateX(6deg);
+}
+
+.box img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    filter:brightness(.9);
+}
+
+.box h3{
+    padding:20px;
+    color:#6dff8a;
+    text-align:center;
+    font-size:22px;
+}
+
+/* ===== STATUS ===== */
+
+.status{
+    text-align:center;
+    padding:100px 20px;
+}
+
+.status-box{
+    background:#061e0e;
+    display:inline-block;
+    padding:22px 50px;
+    border-radius:14px;
+    font-size:28px;
+    box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#6dff8a;
+    font-size:14px;
+}
+/* ===== MENU GLASS ===== */
+
+.topbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter: blur(14px);
+    background: rgba(5,20,10,.5);
+    z-index:20;
+}
+
+.logo{
+    font-size:22px;
+    color:#6dff8a;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.topbar nav a{
+    margin-left:30px;
+    color:white;
+    font-size:16px;
+}
+
+.topbar nav a:hover{
+    color:#6dff8a;
+}
+
+
+/* Scroll suave */
+html{
+    scroll-behavior:smooth;
+}
+
+/* ===== SLIDER ===== */
+
+.slider{
+    position: relative;
+    width:100%;
+    overflow:hidden;
+}
+
+.slides{
+    display:flex;
+    height:420px; /* altura real do carrossel */
+    transition: transform .8s ease;
+}
+
+.slide{
+    min-width:100vw;
+    height:420px;
+    flex-shrink:0;
+}
+
+.slide img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    filter:brightness(.85);
+}
+
+/* Botões do carrossel */
+.control{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,.6);
+    border:none;
+    color:#6dff8a;
+    font-size:38px;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    cursor:pointer;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+/*@keyframes slide{
+    0%   { transform: translateX(0); }
+    33%  { transform: translateX(-100vw); }
+    66%  { transform: translateX(-200vw); }
+    100% { transform: translateX(0); }
+}
+
+/*=====particulas====*/
+
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* ===== HUB INTERATIVO ===== */
+
+.hub{
+    padding:120px 40px;
+    text-align:center;
+}
+
+.hub h2{
+    font-size:36px;
+    margin-bottom:60px;
+    color:#6dff8a;
+}
+
+.hub-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:40px;
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.hub-card{
+    position: relative;
+
+    padding:50px 30px;
+    border-radius:22px;
+    text-align:center;
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.65),
+        inset 0 0 0 1px rgba(90,255,122,.12);
+
+    backdrop-filter: blur(8px);
+    transform-style: preserve-3d;
+    transition: .35s ease;
+}
+
+.hub-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            rgba(5,20,10,.82),
+            rgba(0,0,0,.9)
+        );
+
+    z-index:0;
+}
+
+.hub-card *{
+    position: relative;
+    z-index: 1;
+}
+
+.hub-card:hover{
+    transform: translateY(-15px) rotateX(6deg);
+}
+
+.hub-card h3{
+    font-size:24px;
+    margin-bottom:15px;
+    color:#6dff8a;
+}
+
+.hub-card p{
+    font-size:16px;
+    line-height:1.5;
+    opacity:.9;
+}
+
+.hub-card button{
+    margin-top:20px;
+    padding:12px 26px;
+    background:#5aff7a;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.socials a{
+    color:#6dff8a;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+
+ /*====backgrounds dos hubs card===*/
+
+ .hub-card{
+    background-size: cover; 
+    background-position: center;
+    position: relative;
+ }
+ .bg-servidor{
+    background-image:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+        url("assets/img/hub-servidor.jpg");
+ }
+
+ .bg-loja{
+    background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("assets/img/hub-servidor.jpg");
+ }
+
+ .bg-comojogar{
+    background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("assets/img/hub-servidor.jpg");
+ }
+
+.bg-empregos{
+    background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("assets/img/hub-servidor.jpg");
+ }
+
+ .bg-organizacoes{
+    background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("assets/img/hub-servidor.jpg");
+ }
+
+ .bg-redes{
+    background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("assets/img/hub-servidor.jpg");
+ }
+/* ===== PÁGINA DISCORD ===== */
+
+.discord-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:120px 20px;
+
+    background:
+        linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9)),
+        url("assets/img/card-hub-city.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.discord-card{
+    max-width:520px;
+    width:100%;
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(5,20,10,.9),
+            rgba(0,0,0,.95)
+        );
+
+    padding:50px 40px;
+    border-radius:22px;
+
+    box-shadow:0 40px 80px rgba(0,0,0,.7);
+}
+
+.discord-card h1{
+    color:#6dff8a;
+    margin-bottom:20px;
+}
+
+.discord-card p{
+    margin-bottom:15px;
+    line-height:1.6;
+}
+
+.discord-card code{
+    display:block;
+    background:#04180a;
+    padding:14px;
+    border-radius:10px;
+    margin:20px 0;
+    color:#6dff8a;
+    font-size:15px;
+}
+
+.btn-discord{
+    display:inline-block;
+    margin-top:10px;
+    padding:14px 30px;
+
+    background:#5865F2;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    text-decoration:none;
+
+    border-radius:10px;
+    transition:.3s;
+}
+
+.btn-discord:hover{
+    background:#4752c4;
+}
+
+/* ===== COMO JOGAR ===== */
+
+.how-hero{
+    min-height:60vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px;
+
+    background:
+        linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9)),
+        url("assets/img/bg-city.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.how-hero h1{
+    color:#6dff8a;
+    font-size:48px;
+}
+
+.how-hero p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+.how-steps{
+    max-width:1100px;
+    margin:0 auto;
+    padding:100px 30px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:40px;
+}
+
+.step-card{
+    background:
+        linear-gradient(rgba(5,20,10,.9), rgba(0,0,0,.95));
+    border-radius:20px;
+    padding:40px 30px;
+    text-align:center;
+    box-shadow:0 25px 60px rgba(0,0,0,.6);
+}
+
+.step-card span{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    border-radius:50%;
+    background:#5aff7a;
+    color:#000;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.step-card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    margin-top: 20px;
+
+    border-radius: 12px;
+
+    object-fit: contain;
+}
+
+.step-card h3{
+    color:#6dff8a;
+    margin-bottom:10px;
+}
+
+.step-card code{
+    display:block;
+    background:#04180a;
+    padding:12px;
+    border-radius:8px;
+    margin-top:10px;
+    color:#6dff8a;
+}
+
+.btn-link{
+    display:inline-block;
+    margin-top:15px;
+    color:#6dff8a;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* ===== IP COPIÁVEL ===== */
+
+.ip-box{
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.ip-box input{
+    background:#04180a;
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    color:#6dff8a;
+    font-size:15px;
+    text-align:center;
+    width:190px;
+}
+
+.ip-box button{
+    background:#5aff7a;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.ip-box img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    margin-top: 20px;
+
+    border-radius: 12px;
+
+    object-fit: contain;
+}
+
+/* ===== MOBILE ADAPTAÇÃO ===== */
+@media (max-width: 768px){
+
+    /* MENU */
+    .topbar{
+        padding:14px 20px;
+    }
+
+    .topbar nav a{
+        margin-left:14px;
+        font-size:14px;
+    }
+
+    /* HERO */
+    .scene{
+        height:auto;
+        min-height:100vh;
+        padding-top:110px;
+    }
+
+    .card{
+        padding:40px 25px;
+        transform:none !important;
+    }
+
+    .card:hover{
+        transform:none;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    /* BOTÕES */
+    button,
+    .hub-card button,
+    .btn-discord{
+        width:100%;
+        max-width:320px;
+        font-size:16px;
+    }
+
+    /* INFO */
+    .info{
+        padding:60px 20px;
+    }
+
+    /* SLIDER */
+    .slides,
+    .slide,
+    .slide img{
+        height:260px;
+    }
+
+    .control{
+        width:42px;
+        height:42px;
+        font-size:26px;
+    }
+
+    /* HUB */
+    .hub{
+        padding:80px 20px;
+    }
+
+    .hub h2{
+        font-size:28px;
+        margin-bottom:40px;
+    }
+
+    .hub-card{
+        padding:35px 22px;
+        transform:none !important;
+    }
+
+    .hub-card:hover{
+        transform:none;
+    }
+
+    .hub-card h3{
+        font-size:20px;
+    }
+
+    .hub-card p{
+        font-size:15px;
+    }
+
+    /* COMO JOGAR */
+    .how-hero{
+        padding:90px 20px;
+    }
+
+    .how-hero h1{
+        font-size:32px;
+    }
+
+    .how-steps{
+        padding:70px 20px;
+        gap:30px;
+    }
+
+    .step-card{
+        padding:30px 20px;
+    }
+
+    .step-card h3{
+        font-size:18px;
+    }
+
+    .step-card p{
+        font-size:15px;
+    }
+
+    /* IP BOX */
+    .ip-box{
+        flex-direction:column;
+    }
+
+    .ip-box input,
+    .ip-box button{
+        width:100%;
+        max-width:260px;
+    }
+
+    /* DISCORD PAGE */
+    .discord-card{
+        padding:35px 25px;
+    }
+
+    .discord-card h1{
+        font-size:26px;
+    }
+    .ranking{
+    padding:80px 20px;
+    }
+
+    .ranking-table th,
+    .ranking-table td{
+        font-size:15px;
+        padding:14px;
+    }
+
+
+}
+
+/* ===== DOWNLOADS ===== */
+
+.downloads{
+    padding:100px 30px;
+    max-width:1200px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.downloads h2{
+    color:#6dff8a;
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+.downloads-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:40px;
+}
+
+.download-card{
+    background:
+        linear-gradient(rgba(5,20,10,.9), rgba(0,0,0,.95));
+    padding:40px 30px;
+    border-radius:22px;
+    box-shadow:0 25px 60px rgba(0,0,0,.6);
+}
+
+.download-card h3{
+    color:#6dff8a;
+    margin-bottom:10px;
+}
+
+.download-card p{
+    font-size:15px;
+    opacity:.9;
+}
+
+.btn-download{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 30px;
+    background:#5aff7a;
+    color:#000;
+    font-weight:bold;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+/* ===== RANKING ===== */
+
+/* =========================
+   RANKING
+========================= */
+
+.ranking {
+    width: 100%;
+    padding: 120px 5%;
+    margin: 0 auto;
+}
+
+.ranking-table {
+    width: 100%;
+    max-width: 1400px; /* maior presença em telas grandes */
+    margin: 0 auto;
+
+    border-collapse: collapse;
+
+    background: linear-gradient(
+        rgba(5, 20, 10, 0.92),
+        rgba(0, 0, 0, 0.96)
+    );
+
+    border-radius: 22px;
+    overflow: hidden;
+
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+
+/* Cabeçalho */
+.ranking-table th {
+    padding: 20px;
+    font-size: 18px;
+    background: #04180a;
+    color: #6dff8a;
+    text-align: center;
+}
+
+/* Células */
+.ranking-table td {
+    padding: 18px;
+    font-size: 17px;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Linhas alternadas */
+.ranking-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* =========================
+   TOP 3 RANKING
+========================= */
+
+.top3-container {
+    max-width: 1400px;
+    margin: 0 auto 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.top-card {
+    position: relative;
+    padding: 35px 20px;
+    border-radius: 20px;
+    text-align: center;
+    background: linear-gradient(
+        rgba(5, 20, 10, 0.9),
+        rgba(0, 0, 0, 0.95)
+    );
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.top-card .pos {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.top-card .name {
+    font-size: 22px;
+    margin-top: 25px;
+}
+
+.top-card .points {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+/* Cores por posição */
+.top-card.first {
+    border: 2px solid gold;
+    color: gold;
+}
+
+.top-card.second {
+    border: 2px solid silver;
+    color: silver;
+}
+
+.top-card.third {
+    border: 2px solid #cd7f32;
+    color: #cd7f32;
+}

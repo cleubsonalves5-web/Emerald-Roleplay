@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head> <!--menu-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emerald Roleplay</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="logo">EMERALD RP</div>
+        <nav>
+            <a href="#ranking">Ranking</a>
+            <a href="#home">Início</a>
+            <a href="#sobre">Servidor</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#status">Status</a>
+        </nav>
+    </header>
+    
+<!-- HERO / CARD PRINCIPAL -->
+<div class="scene" id="home">
+    <div class="card">
+        <h1>EMERALD ROLEPLAY</h1>
+        <p id="players">Carregando jogadores...</p>
+        <button onclick="entrar()">Entrar no Servidor</button>
+        <button onclick="window.location.href='discord.html'">
+        Entrar no Discord
+        </button>
+    </div>
+</div>
+
+<!-- SOBRE -->
+<section class="info" id="sobre">
+    <h2>Servidor RP de Nova Geração</h2>
+    <p>
+        Sistema econômico realista, facções, gangues, profissões e eventos diários.
+        Uma experiência completa inspirada em GTA San Andreas.
+    </p>
+</section>
+
+<!-- GALERIA VISUAL -->
+<section class="slider" id="galeria">
+
+    <div class="slides" id="slides">
+        <div class="slide">
+            <img src="assets/img/image-15.png" alt="Emerald Roleplay">
+        </div>
+        <div class="slide">
+            <img src="assets/img/image-13.png" alt="Emerald Roleplay">
+        </div>
+        <div class="slide">
+            <img src="assets/img/image-12.png" alt="Emerald Roleplay">
+        </div>
+    </div>
+
+    <!-- CONTROLES -->
+    <button class="control prev" onclick="prevSlide()">❮</button>
+    <button class="control next" onclick="nextSlide()">❯</button>
+
+</section>
+<!--menu visual-->
+<section class="hub" id="hub">
+    <h2>Explore o Emerald Roleplay</h2>
+
+    <div class="hub-grid">
+
+        <div class="hub-card bg-servidor">
+            <h3>🖥️ Servidor</h3>
+            <p>Status em tempo real e IP para conexão.</p>
+            <button onclick="window.location.href='ranking.html'">Entrar no Servidor</button>
+        </div>
+
+        <div class="hub-card bg-loja">
+            <h3>🛒 Loja</h3>
+            <p>Planos VIP, vantagens e apoio ao servidor.</p>
+            <button onclick="alert('Loja em breve')">Acessar Loja</button>
+        </div>
+
+        <div class="hub-card bg-comojogar">
+            <h3>🎮 Como Jogar</h3>
+            <p>Aprenda a instalar o SA-MP e começar sua história.</p>
+            <button onclick="window.location.href='como-jogar.html'">Ver Guia</button>
+        </div>
+
+        <div class="hub-card bg-empregos">
+            <h3>💼 Empregos</h3>
+            <p>Trabalhos legais para iniciar sua vida no RP.</p>
+            <button onclick="scrollToSection('empregos')">Ver Empregos</button>
+        </div>
+
+        <div class="hub-card bg-organizacoes">
+            <h3>🏛️ Organizações</h3>
+            <p>Facções legais, ilegais e corporações.</p>
+            <button onclick="scrollToSection('organizacoes')">Ver Organizações</button>
+        </div>
+
+        <div class="hub-card bg-redes">
+            <h3>🌐 Redes Sociais</h3>
+            <p>Fique por dentro de novidades e eventos.</p>
+            <div class="socials">
+                <a href="https://discord.gg/BkwQ7vPTWc" target="_blank">Discord</a>
+                <a href="https://www.instagram.com/emdroleplay?igsh=YTFwY3M5cGU1MDhp" target="_blank">Instagram</a>
+                <a href="https://youtube.com/@emeraldrp4861?si=8lB2X84EEc73xK4q" target="_blank">YouTube</a>
+            </div>
+        </div>
+
+    </div>
+
+<section class="ranking" id="ranking">
+    <h2>Top Jogadores</h2>
+    <ul id="rankingList"></ul>
+</section>
+
+<!-- STATUS -->
+<section class="status" id="status">
+    <h2>Status do Servidor</h2>
+    <div class="status-box">
+        <span id="serverstatus">🟢 Online</span>
+    </div>
+</section>
+
+<footer>
+    Emerald Roleplay © 2026
+</footer>
+
+<canvas id="particles"></canvas>
+<script src="script.js"></script>
+
+</body>
+</html>
